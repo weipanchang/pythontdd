@@ -1,55 +1,35 @@
 #!/usr/bin/env python
 
-import requests
-#import urllib2
+import requests, urllib3
 from bs4 import BeautifulSoup
 
-import urllib3
 requests.packages.urllib3.disable_warnings()
-
 
 def soup_maker(url):
      soup = BeautifulSoup(requests.get(url, verify=False).content, "html.parser")
      return soup
 
-def main():
-#   page = requests.get("https://www.limetorrents.cc/", verify=False)
-   url = 'https://www.limetorrents.cc/search/all/udemy/date/2/'
-#   urlContent = urllib3.urlopen(url,context=context).read()
-#   url = 'https://www.limetorrents.cc/search/all/udemy/'
-#   page = requests.get("https://www.limetorrents.cc/", verify=False)
-#   page = requests.get("https://www.yahoo.com/", verify=False)
-#   print page.status_code
-#   soup = BeautifulSoup(''.join(urlContent))
-   soup = soup_maker(url)
-   name_box = soup.find_all('a')
-#   print
-#   print name_box
-   for i in name_box:
-#     if (type(str(i)) == 'str') and str(i).startwith('<a href='):
-#     if (isinstance(str(i), basestring) == True) and str(i)[:8:] == '<a href=':
-#     if type(str(i)) == str and str(i)[:15:] == '<a href="/Udemy':
-     if str(i)[:15:] == '<a href="/Udemy':
-          print str(i)[10::]
-   # 
-   # try:
-   #   body_texts = soup.body(text=True)
-   # except:
-   #   return
-   # text = ''.join(body_texts)
-   # 
-   # if text.find("Machine") > -1:
-   #   print url
-   #   print
-
-
+def main(search_string, search_page_total, search_website):
+     for j in xrange(search_page_total+1):
+#          url = 'https://www.limetorrents.cc/search/all/udemy/date/2/'
+#          url = search_website + '/search/all/' + search_string + '/date/' + str(j)
+          if j == 0 :
+               url = search_website + '/search/all/' + search_string
+          else:
+               url = search_website + '/search/all/' + search_string + '/date/' + str(j)
+          soup = soup_maker(url)
+          name_box = soup.find_all('a')
+     
+          for i in name_box:
+               string_search_length = len(search_string)
+               str2 = str(i).lower()
+               if str2[:10:] == '<a href="/' and ((str2)[10:10 + string_search_length:] == search_string \
+                    or (str2)[11:11 + string_search_length:] == search_string):
+                    string_list = str(i)[10:-4:].split('">')
+                    print string_list[1] + '\t\t' + string_list[0]  
 
 if __name__ == "__main__":
-   # if len(sys.argv) > 1:
-   #  # Get address from command line.
-   #    address = ' '.join(sys.argv[1:])
-   #
-   # else:
-   #     # Get address from clipboard.
-   #     address = pyperclip.paste()
-   main()
+     search_string = 'cbt nuggets'.replace(' ', '-')
+     search_page_total = 5
+     search_website='https://limetorrents.cc'
+     main(search_string, search_page_total, search_website)
