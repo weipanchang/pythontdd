@@ -29,7 +29,9 @@ def main(search_string, search_page_total, search_website):
                     print string_list[1] + '\t\t' + string_list[0]  
 
 if __name__ == "__main__":
-     search_string = 'cbt nuggets'.replace(' ', '-')
-     search_page_total = 5
-     search_website='https://limetorrents.cc'
-     main(search_string, search_page_total, search_website)
+     string_list =['udemy','tutsplus', 'tutplus','tuts+','oreilly','o\'reilly','lynda','cbt nuggest','pluralsight','learn','learning']
+     for s in string_list:
+          search_string=s.replace(' ', '-')
+          search_page_total = 1
+          search_website='https://limetorrents.cc'
+          main(search_string, search_page_total, search_website)
