@@ -64,12 +64,13 @@ def main(search_string, search_page_total, search_website):
      db.close()
 
 if __name__ == "__main__":
-     string_list =["udemy","tutsplus", "tutplus","tuts+","oreilly","o'reilly","lynda","cbt nuggest","pluralsight","learn","learning","raspberry pi"]
+     string_list =["udemy","tutsplus", "tutplus","tuts+","oreilly","o'reilly","lynda", \
+                   "cbt nuggest","pluralsight","learn","learning","raspberry pi", 'itpro']
 
 #     string_list =['udemy']
      for s in string_list:
           search_string=s.replace(' ', '-')
-          search_page_total = 10
+          search_page_total = 2
           search_website='https://limetorrents.cc'
           main(search_string, search_page_total, search_website)
 
