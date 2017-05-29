@@ -64,7 +64,7 @@ def main(search_string, search_page_total, search_website):
      db.close()
 
 if __name__ == "__main__":
-     string_list =['udemy','tutsplus', 'tutplus','tuts+','oreilly','o\'reilly','lynda','cbt nuggest','pluralsight','learn','learning']
+     string_list =["udemy","tutsplus", "tutplus","tuts+","oreilly","o'reilly","lynda","cbt nuggest","pluralsight","learn","learning","raspberry pi"]
 
 #     string_list =['udemy']
      for s in string_list:
