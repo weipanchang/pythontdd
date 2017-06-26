@@ -124,7 +124,7 @@ if __name__ == "__main__":
 #     string_list =['udemy']
      string_list =["udemy","tutsplus", "tutplus","tuts+" ,"tuts plus","oreilly","o'reilly","lynda", "apress", \
                    "cbt nuggest","pluralsight","skillfeed", "learn","learning","raspberry pi", "raspberry-pi",\
-                   "itpro", "sams", "teamtreehouse", "livelessons"]
+                   "itpro", "sams", "teamtreehouse", "livelessons", "wrox", "addison wesley", "prentice hall"]
      search_website='https://limetorrents.cc'
      if len (sys.argv[1::]) <= 1:
           for s in string_list:
