@@ -31,6 +31,9 @@ class fibonacci():
     def even_fibonacci_list(self, top):
         l = self.fibonacci_list(top)
         return [x for x in l if x % 2 == 0 ]
+    
+num = fibonacci()
+print fibonacci.fibonacci_list(10)
             
             
             
