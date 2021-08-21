@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 class Clock():
     def _init_(self, time):
         
